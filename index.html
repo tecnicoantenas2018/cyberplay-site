@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CyberPlay | Tudo em um só lugar</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, #0b2c4d 0%, #04080d 35%, #000 70%);
+      color: white;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 45px 20px 30px;
+      border-bottom: 1px solid #168cff;
+    }
+
+    .logo {
+      font-size: 46px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow:
+        0 0 10px #008cff,
+        0 0 25px #0077ff;
+    }
+
+    .logo span:first-child {
+      color: #e6edf5;
+    }
+
+    .logo span:last-child {
+      color: #1a9cff;
+    }
+
+    header h1 {
+      margin-top: 15px;
+      font-size: 23px;
+    }
+
+    header p {
+      color: #b9c8d8;
+      max-width: 750px;
+      margin: 12px auto 0;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 25px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      background: linear-gradient(135deg, #0069d9, #00a7ff);
+      box-shadow: 0 0 18px rgba(0, 145, 255, .45);
+      transition: .2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(0, 145, 255, .8);
+    }
+
+    .btn-green {
+      background: linear-gradient(135deg, #0e9f4b, #25d366);
+      box-shadow: 0 0 18px rgba(37, 211, 102, .35);
+    }
+
+    main {
+      width: min(1150px, 92%);
+      margin: auto;
+    }
+
+    section {
+      padding: 55px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 31px;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #9fb1c3;
+      margin-bottom: 30px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background:
+        linear-gradient(145deg, rgba(15, 28, 42, .96), rgba(2, 7, 12, .96));
+      border: 1px solid #194e79;
+      border-radius: 18px;
+      padding: 25px 20px;
+      box-shadow: 0 0 20px rgba(0, 100, 200, .12);
+      text-align: center;
+    }
+
+    .card:hover {
+      border-color: #159cff;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-size: 34px;
+      color: #37adff;
+      font-weight: 900;
+      margin: 12px 0;
+    }
+
+    .price small {
+      font-size: 14px;
+      color: #b7c6d5;
+      font-weight: normal;
+    }
+
+    .highlight {
+      border: 2px solid #159cff;
+      position: relative;
+    }
+
+    .badge {
+      background: #159cff;
+      color: white;
+      padding: 7px 13px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .feature-box {
+      background: rgba(8, 20, 32, .86);
+      border: 1px solid #164e78;
+      border-radius: 18px;
+      padding: 28px;
+      margin-top: 20px;
+    }
+
+    .feature-box h3 {
+      color: #43b7ff;
+      margin-bottom: 15px;
+      font-size: 23px;
+    }
+
+    .feature-box p {
+      color: #c2cfdb;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .code-box {
+      background: #06111c;
+      border: 1px solid #168cff;
+      border-radius: 13px;
+      padding: 17px;
+      margin: 12px 0;
+    }
+
+    .code-box strong {
+      color: #49b9ff;
+    }
+
+    .code {
+      display: block;
+      font-size: 27px;
+      font-weight: 900;
+      color: white;
+      margin-top: 6px;
+      letter-spacing: 2px;
+    }
+
+    .ntdow {
+      border-color: #22c55e;
+    }
+
+    .ntdow strong {
+      color: #3ee878;
+    }
+
+    .auto-test {
+      text-align: center;
+      background:
+        linear-gradient(145deg, rgba(9, 54, 88, .85), rgba(3, 13, 22, .96));
+      border: 2px solid #159cff;
+      border-radius: 20px;
+      padding: 35px 20px;
+    }
+
+    .auto-test h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .auto-test p {
+      color: #b9cbdc;
+      max-width: 720px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .notice {
+      margin-top: 20px;
+      background: rgba(255, 183, 0, .08);
+      border: 1px solid #d49b15;
+      border-radius: 12px;
+      padding: 16px;
+      color: #f0ce78;
+    }
+
+    footer {
+      border-top: 1px solid #143b5c;
+      padding: 30px 20px;
+      text-align: center;
+      color: #8498aa;
+      margin-top: 30px;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 29px;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(37, 211, 102, .6);
+      z-index: 100;
+    }
+
+    @media (max-width: 900px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .logo {
+        font-size: 38px;
+      }
+
+      header h1 {
+        font-size: 20px;
+      }
+
+      .section-title {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <span>CYBER</span><span>PLAY</span>
+    </div>
+
+    <h1>TUDO EM UM SÓ LUGAR!</h1>
+
+    <p>
+      Entretenimento, filmes, séries, canais e muito mais.
+      Escolha seu plano ou solicite um teste para conhecer nossa plataforma.
+    </p>
+
+    <a class="btn btn-green"
+       href="https://wa.me/17167191305?text=Olá!%20Quero%20conhecer%20a%20CyberPlay."
+       target="_blank">
+       FALAR NO WHATSAPP
+    </a>
+  </header>
+
+
+  <main>
+
+    <!-- PLANOS -->
+
+    <section id="planos">
+
+      <h2 class="section-title">Escolha seu plano</h2>
+
+      <p class="section-subtitle">
+        Escolha a melhor opção para você.
+      </p>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>Mensal</h3>
+
+          <div class="price">
+            R$ 35<small>,00</small>
+          </div>
+
+          <p>30 dias de acesso</p>
+
+          <a class="btn btn-green"
+             href="https://wa.me/17167191305?text=Olá!%20Quero%20assinar%20o%20plano%20Mensal%20de%20R$35."
+             target="_blank">
+             ASSINAR
+          </a>
+        </div>
+
+
+        <div class="card">
+          <h3>Trimestral</h3>
+
+          <div class="price">
+            R$ 95<small>,00</small>
+          </div>
+
+          <p>90 dias de acesso</p>
+
+          <a class="btn btn-green"
+             href="https://wa.me/17167191305?text=Olá!%20Quero%20assinar%20o%20plano%20Trimestral%20de%20R$95."
+             target="_blank">
+             ASSINAR
+          </a>
+        </div>
+
+
+        <div class="card highlight">
+
+          <span class="badge">MAIS ESCOLHIDO</span>
+
+          <h3>Semestral</h3>
+
+          <div class="price">
+            R$ 160<small>,00</small>
+          </div>
+
+          <p>180 dias de acesso</p>
+
+          <a class="btn btn-green"
+             href="https://wa.me/17167191305?text=Olá!%20Quero%20assinar%20o%20plano%20Semestral%20de%20R$160."
+             target="_blank">
+             ASSINAR
+          </a>
+        </div>
+
+
+        <div class="card">
+          <h3>Anual</h3>
+
+          <div class="price">
+            R$ 300<small>,00</small>
+          </div>
+
+          <p>365 dias de acesso</p>
+
+          <a class="btn btn-green"
+             href="https://wa.me/17167191305?text=Olá!%20Quero%20assinar%20o%20plano%20Anual%20de%20R$300."
+             target="_blank">
+             ASSINAR
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TESTE P2P -->
+
+    <section>
+
+      <div class="auto-test">
+
+        <h2>⚡ TESTE GRÁTIS P2P PRO</h2>
+
+        <p>
+          Tecnologia de ponta para seu dispositivo Android.
+          Instale nosso aplicativo e solicite seu acesso de teste.
+        </p>
+
+        <a class="btn"
+           href="#instalacao">
+           COMO INSTALAR
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- INSTALAÇÃO -->
+
+    <section id="instalacao">
+
+      <h2 class="section-title">
+        Como instalar nosso app
+      </h2>
+
+      <p class="section-subtitle">
+        Smart TV Android • TV Box • Fire TV • Celular Android
+      </p>
+
+
+      <div class="steps">
+
+        <div class="feature-box">
+
+          <h3>🟢 Pelo NTDOW</h3>
+
+          <p>
+            Entre na Play Store e instale o aplicativo NTDOW.
+            Depois abra o aplicativo e digite um dos códigos abaixo.
+          </p>
+
+          <div class="code-box ntdow">
+            <strong>CYBERPLAY PRO</strong>
+            <span class="code">25554</span>
+          </div>
+
+          <div class="code-box ntdow">
+            <strong>CYBERPLAY LITE</strong>
+            <span class="code">81441</span>
+          </div>
+
+        </div>
+
+
+        <div class="feature-box">
+
+          <h3>🔵 Pelo Downloader</h3>
+
+          <p>
+            Instale o aplicativo Downloader.
+            Abra o aplicativo e digite o código correspondente à versão desejada.
+          </p>
+
+          <div class="code-box">
+            <strong>CYBERPLAY LITE</strong>
+            <span class="code">2565142</span>
+          </div>
+
+          <div class="code-box">
+            <strong>CYBERPLAY PRO</strong>
+            <span class="code">5242420</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="feature-box">
+
+        <h3>📺 IPTV para Android</h3>
+
+        <p>
+          Para utilizar a opção IPTV em dispositivos Android,
+          instale pelo NTDOW ou Downloader.
+        </p>
+
+        <div class="steps">
+
+          <div class="code-box ntdow">
+            <strong>NTDOW IPTV</strong>
+            <span class="code">51722</span>
+          </div>
+
+          <div class="code-box">
+            <strong>DOWNLOADER IPTV</strong>
+            <span class="code">9301107</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="notice">
+        <strong>IMPORTANTE:</strong>
+        Sua Smart TV não é Android?
+        Entre em contato conosco pelo WhatsApp para receber a orientação correta para seu aparelho.
+      </div>
+
+    </section>
+
+
+    <!-- TESTE AUTOMÁTICO -->
+
+    <section>
+
+      <div class="auto-test">
+
+        <h2>🚀 Teste Automático</h2>
+
+        <p>
+          Em breve você poderá gerar seu teste diretamente por esta página,
+          escolhendo seu dispositivo e o tipo de acesso.
+        </p>
+
+        <a class="btn btn-green"
+           href="https://wa.me/17167191305?text=Olá!%20Quero%20fazer%20um%20teste%20grátis%20na%20CyberPlay."
+           target="_blank">
+           PEDIR TESTE AGORA
+        </a>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <footer>
+
+    <strong>CYBERPLAY</strong>
+
+    <p style="margin-top:8px;">
+      Tudo em um só lugar.
+    </p>
+
+  </footer>
+
+
+  <a class="floating-whatsapp"
+     href="https://wa.me/17167191305?text=Olá!%20Vim%20pelo%20site%20da%20CyberPlay."
+     target="_blank"
+     title="WhatsApp">
+     ☎
+  </a>
+
+
+</body>
+</html>
